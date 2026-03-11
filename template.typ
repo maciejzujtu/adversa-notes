@@ -1,9 +1,15 @@
+/**
+ * Since this package is not a part of Typst's official preview set, you have to manually
+ * link it to local library. 
+ * .../typst/packages/local/adversa/0.1.0/
+ */
+
 #import "@local/adversa:0.1.0": *
 #show: adversa.with(
   title: [Template Title], 
   topic: [Topic Title],
   contents_title: [Contents Table],
-  font: DEFAULT_FONT,
+  font: "New Computer Modern Math",
   date: true
 )
 

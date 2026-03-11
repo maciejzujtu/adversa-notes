@@ -9,7 +9,7 @@
 
 /* Configuration */
 #let ENABLE_AUTO_RESIZE   = none // Doesn't work atm
-#let DEFAULT_FONT         = "New Computer Modern Math"
+#let DEFAULT_FONT         = none
 #let MARKER_BG_COLOR      = rgb("#cf4dd14e")
 #let MARKER_TEXT_COLOR    = rgb("#59275aa5")
 #let DIVIDER-WIDTH        = 0.3pt
