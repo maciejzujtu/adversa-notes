@@ -141,7 +141,7 @@
       #line(length: 100%, stroke: ALGORITHM-BAR-THICKNESS)
       #if it.caption != none [
         #pad(y: -0.6em)[
-          #text(size: ALGORITHM-TITLE-SIZE, font: DEFAULT_FONT)[
+          #text(size: ALGORITHM-TITLE-SIZE)[
               *#it.caption*
             ]
         ]
