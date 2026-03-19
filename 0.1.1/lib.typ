@@ -2,9 +2,10 @@
 #import "@preview/minimal-note:0.10.0": *
 #import "@preview/mousse-notes:1.0.0": *
 
-#let FONT   = "New Computer Modern"
-#let SIZE   = 12pt   
-#let INDENT = 1.4em
+#let FONT   = "New Computer Modern" 
+#let SIZE   = 12pt        // Default font size for the page
+#let INDENT = 1.4em       // What's the default indent on paragraphs
+#let CHAPTER = [Rozdział] // How do you want chapter to be called
 
 #let title-page(
   title: none,
@@ -28,7 +29,6 @@
   ]
 }
 
-
 /**
  * The template function that you include
  * into the document at the beginning.
@@ -46,29 +46,84 @@
   set par(first-line-indent: INDENT, justify: true)
   set terms(hanging-indent: INDENT)
   set enum(indent: INDENT, numbering: "1.")
+
+  set page(
+    fill: rgb("#FDFBF7"),
+    margin: (left: 16.3%, right: 16.3%),
+  )  
+
+  set document(
+    author: if author != none { author } else { () }, title: title
+  )
+
   set heading(numbering: "1.")
+  show heading.where(level: 1): it => {
+    pagebreak(weak: true)
+    set text(weight: "regular", hyphenate: false)
+    set par(first-line-indent: 0em)
+    block(
+      inset: (left: -0.2em),
+      height: 15% - 1em,
+      {
+        set text(size: 2em, spacing: 0.5em)
+        (emph(it.body))
+      } 
+      + if it.outlined {
+        emph[
+          #v(0.9em, weak: true)
+          #smallcaps[#CHAPTER] #counter(heading).display()
+        ]
+      }
+    )
+  }
+  show heading.where(level: 2): it => {
+    block(
+      sticky: true,
+      (
+        emph(text(size: 0.8em, counter(heading).display()))
+        + h(0.5em)
+        + emph(text(size: 1.05em, it.body))
+        + box(
+            width: 1fr, 
+            align(
+              right, line(
+                length: 100% - 0.8em, start: (0%, -0.225em), 
+                stroke: (
+                  paint: black,
+                  cap: "round",
+                )
+              )
+            )
+          )
+      )
+    )
+    indent
+    v(0.5em, weak: true)
+  }
 
-  set page(fill: rgb("#FDFBF7"))  
-  set document(author: if author != none { author } else { () }, title: title)
-
-  show heading: it => block(
-    text(fill: rgb("2563EB"),
-    weight: "bold", 
-    it)
-  )
-
-  title-page(
-    author: author,
-    title: title,
-    subtitle: subtitle,
-  )
+  title-page(author: author, title: title, subtitle: subtitle)
   
-  outline(
-    title: outline-title
-  )
+  outline(title: outline-title)
 
   pagebreak()
+
   
   body
 }
 
+#let tablef(..args) = {
+  set table.hline(stroke: 0.5pt)
+  table(
+    align: left,
+    stroke: (x, y) => {
+      if (y == 0) {
+        (
+          top: 1pt,
+          bottom: 0.5pt,
+        )
+      }
+    },
+    ..args.named(),
+    ..(args.pos() + (table.hline(stroke: 1pt),)),
+  )
+}
