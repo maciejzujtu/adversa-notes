@@ -57,7 +57,6 @@
 #let ALGORITHM-INSET          = 2.6pt
 #let ALGORITHM-COMMENT-SYMBOL = "#"
 
-
 /* 
  * Stylistic functions to customize
  * more niche parts of the typst language
