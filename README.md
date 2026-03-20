@@ -1,5 +1,5 @@
 # Adversa Notes
----
+
 **Adversa** is a [Typst](https://typst.app) template intended for taking course notes, designed with STEM-related subjects in mind, mainly mathematics and computer science. The inspiration and reason for its purpose comes from other typst templates such as `minimal-notes` and `mousse-notes` lacking certain features that I found necessary, thus this template is a tweaked mash up of them.
 
 _dummy page preview_
