@@ -11,5 +11,6 @@ disciplines = ["computer-science", "mathematics"]
 compiler = "0.14.2"
 
 [template]
-entrypoint = "templates/demo.typ"
+path = "templates"
+entrypoint = "main.typ"
 thumbnail = "preview.png"

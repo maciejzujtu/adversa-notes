@@ -15,7 +15,7 @@
 #let prf = [Proof]
 #let rmk = [Remark]
 
-#let Adversa(
+#let adversa(
   title: none, 
   author: none,
   subtitle: none,

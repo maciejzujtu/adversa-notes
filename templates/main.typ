@@ -3,7 +3,7 @@
 #import "@preview/codly-languages:0.1.1": *
 
 #show: codly-init.with()
-#show: Adversa.with(
+#show: adversa.with(
   author: "You",
   title: [Algorithms and Data Structures],
   subtitle: [Comprehensive set of notes],
