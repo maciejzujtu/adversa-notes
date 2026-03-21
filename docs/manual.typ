@@ -1,7 +1,7 @@
 #import "@preview/adversa:0.1.1": *
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *
-
+#show: codly-init
 #show: adversa.with(
   title: "Adversa Notes",
   subtitle: "A package manual",
@@ -9,7 +9,8 @@
   outline-title: "Contents",
   show-date: false
 )
-#show: codly-init
+
+
 #codly(languages: codly-languages)
 
 = Introduction
@@ -19,7 +20,7 @@ Welcome to the *Adversa* package! This template is designed to provide a clean, 
 == Document Structure
 The template automatically handles page breaks and formatting for different heading levels:
 - `Level 1` (`=`) creates a new *Chapter* with a large, centered title.
-- `Level 2` (`==`) creates a section with a sleek horizontal rule.
+- `Level 2` (`==`) creates a section with a sleek horizontal rule, inspired by `mousse-notes`.
 - `Level 3` (`===`) is used internally for environments, but can be used for sub-sections.
 
 = Features & Usage
