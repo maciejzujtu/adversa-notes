@@ -20,6 +20,6 @@ exclude = [
 [template]
 path = "templates"
 entrypoint = "dummy.typ"
-thumbnail = "docs/thumbnail-page.svg"
+thumbnail = "docs/preview.png"
 
 [tool]
