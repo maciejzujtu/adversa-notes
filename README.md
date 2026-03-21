@@ -9,11 +9,11 @@ _dummy page preview_
 ## Installation
 To start using the template, you must first install it locally to your `typst/packages/local/` directory. To make this process as seamless as possible you can use [typship](https://github.com/sjfhsjfh/typship) tool for typst package management and run the following command in your CLI.
 ```bash
-typship download https://github.com/maciejzujtu/adversa
+$ typship download https://github.com/maciejzujtu/adversa
 ```
 After successful installation you can view a dummy page by creating a directory that has few dummy files to showcase functions that this template has to offer. To download the template simply run:
 ```bash
-typst init @local/adversa <path>
+$ typst init @local/adversa <path>
 ```
 I'm planning to submit a fork request to `typst/packages` repository in order to hopefully have this template added onto the `@preview` namespace. For now though it's only accessible by locally installing it on your device.
 

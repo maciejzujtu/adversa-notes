@@ -1,6 +1,7 @@
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *
 #import "@preview/adversa:0.1.1": *
+#show: codly-init
 #show: adversa.with(
   title: [Algorithms and Data Structures],
   subtitle: [Comprehensive set of notes],
@@ -8,7 +9,7 @@
   author: "Dummy",
   show-date: true
 )
-#show: codly-init
+
 #codly(languages: codly-languages)
 
 = Introduction to the course
