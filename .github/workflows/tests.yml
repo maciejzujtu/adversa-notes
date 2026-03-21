@@ -28,12 +28,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Install just
         uses: taiki-e/install-action@v2
         with:
-          tool: just
+          tool: just, typship
 
       - name: Setup typst
         id: setup-typst
@@ -45,6 +45,9 @@ jobs:
         uses: typst-community/setup-tytanic@v1
         with:
           tytanic-version: ${{ matrix.typst-version.tytanic }}
+
+      - name: Link local package to @preview cache
+        run: typship dev
 
       - name: Run test suite
         run: just test
