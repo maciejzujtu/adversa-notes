@@ -1,4 +1,4 @@
-#import "@local/adversa:0.1.1": *
+#import "@preview/adversa:0.1.1": *
 #show: adversa.with(
   title: [Algorithms and Data Structures],
   subtitle: [Comprehensive set of notes],
