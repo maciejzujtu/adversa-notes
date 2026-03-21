@@ -32,6 +32,8 @@ It's worth noting that this template uses [codly](https://typst.app/universe/pac
 
 ```typ
 #import "@local/adversa:0.1.1": *
+// #import "@preview/codly:1.3.0": *            <- Code snippets import
+// #import "@preview/codly-languages:0.1.1": *  <- Icons pack import
 
 #show: adversa.with(
   title: [Algorithms and Data Structures],
@@ -41,8 +43,8 @@ It's worth noting that this template uses [codly](https://typst.app/universe/pac
   show-date: true
 )
 
-// #show: codly-init                    <- Code snippets
-// #codly(languages: codly-languages)   <- Icons pack
+// #show: codly-init                    <- Code snippets rule
+// #codly(languages: codly-languages)   <- Icons pack rule
 ```
 
 After including the following rules as well as imports the title page will look like the one below.

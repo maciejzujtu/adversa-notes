@@ -1,6 +1,3 @@
-#import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
-
 #let FONT   = "New Computer Modern" 
 #let SIZE   = 12pt        
 #let INDENT = 1.4em
