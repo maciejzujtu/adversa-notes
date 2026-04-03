@@ -20,7 +20,6 @@
   show-date: false,
   body
 ) = {
-
   set text(font: FONT, size: SIZE, fill: rgb("#1A1A1A"))
   set par(first-line-indent: INDENT, justify: true)
   set terms(hanging-indent: INDENT)
@@ -35,8 +34,7 @@
     set text(weight: "regular", hyphenate: false)
     set par(first-line-indent: 0em)
     block(
-      inset: (left: -0.2em),
-      height: 15% - 1em,
+      inset: (left: -0.2em, bottom: -3em),
       {
         set text(size: 2em, spacing: 0.5em)
         (emph(it.body))
@@ -51,6 +49,7 @@
     v(6em, weak: true)
   }
   show heading.where(level: 2): it => {
+    v(2em)
     block(
       sticky: true,
       (
@@ -199,6 +198,8 @@
   
 // Theorem environment inspired by mousse-notes but remade so it shows up
 // in the contents table as well added few extra visual tweaks.
+// Theorem environment inspired by mousse-notes but remade so it shows up
+// in the contents table as well added few extra visual tweaks.
 #let env(name, color) = {
   return (..args) => {
     let pos = args.pos()
@@ -212,6 +213,7 @@
     else if pos.len() == 1 {
       body = pos.at(0)
     }
+    
     align(center)[
       #block(
         width: 102%,
@@ -220,9 +222,24 @@
         inset: (x: 2.5em, y: 2.5em),
         stroke: rgb(color.to-hex().slice(0, 7)).darken(40%),
         align(left)[ 
-          #heading(level: 3, supplement: name)[#if title != none [#text(size: 1.1em, title)]]
-          #place(dy: -0.4em, line(length: 100%, stroke: 0.3pt))
-          #v(1.4em)
+          #if title != none [
+            #context [
+              #let prev-headings = query(selector(heading).before(here()))
+              #let heading-level = if prev-headings.len() > 0 {
+                prev-headings.last().level
+              } else {
+                0
+              }
+
+              #if heading-level != 2 {
+                panic("Structural Error: The '" + name + "' environment must be placed under a Level 3 heading. It is currently under a Level " + str(heading-level) + " heading.")
+              }
+
+              #heading(level: 3, supplement: name)[#text(size: 1.1em, title)] 
+              #line(length: 100%, stroke: 0.3pt)
+            ]
+          ]
+
           #body
         ]
       )
@@ -231,11 +248,13 @@
   }
 }
 
-#let definition = env(def, rgb("#6a9ace1d"))
-#let theorem = env(thm, rgb("#6aceb71d"))
-#let lemma = env(lem, rgb("#c46ace1d"))
-#let example = env(exp, rgb("#d1a6aa1d"))
-#let exercise = env(exr, rgb("#ce946a1d"))
-#let solution = env(sol, rgb("#8dce6a1d"))
-#let proof = env(prf, rgb("#6a9fce1d"))
-#let remark = env(rmk, rgb("#6ac2ce1d"))
+
+
+#let definition = env("Definition", rgb("#6a9ace1d"))
+#let theorem = env("Theorem", rgb("#6aceb71d"))
+#let lemma = env("Lemma", rgb("#c46ace1d"))
+#let example = env("Example", rgb("#d1a6aa1d"))
+#let exercise = env("Exercise", rgb("#ce946a1d"))
+#let solution = env("Solution", rgb("#8dce6a1d"))
+#let proof = env("Proof", rgb("#6a9fce1d"))
+#let remark = env("Remark", rgb("#6ac2ce1d"))
