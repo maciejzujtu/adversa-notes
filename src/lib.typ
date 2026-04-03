@@ -223,21 +223,9 @@
         stroke: rgb(color.to-hex().slice(0, 7)).darken(40%),
         align(left)[ 
           #if title != none [
-            #context [
-              #let prev-headings = query(selector(heading).before(here()))
-              #let heading-level = if prev-headings.len() > 0 {
-                prev-headings.last().level
-              } else {
-                0
-              }
-
-              #if heading-level == 3 [
-                #heading(level: 3, supplement: name)[#text(size: 1.1em, title)] 
-                #line(length: 100%, stroke: 0.3pt)
-              ]
-            ]
+             #heading(level: 3, supplement: name)[#text(size: 1.1em, title)]
+             #line(length: 100%, stroke: 0.3pt)
           ]
-
           #body
         ]
       )
@@ -245,8 +233,6 @@
     ]
   }
 }
-
-
 
 #let definition = env("Definition", rgb("#6a9ace1d"))
 #let theorem = env("Theorem", rgb("#6aceb71d"))
