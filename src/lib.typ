@@ -16,7 +16,7 @@
   title: none, 
   author: none,
   subtitle: none,
-  outline-title: none,
+  contents-title: none,
   show-date: false,
   body
 ) = {
@@ -147,7 +147,7 @@
         text(size: 1.5em, spacing: 0.5em, smallcaps(it.body))
       )
     }
-    outline(title: outline-title)
+    outline(title: contents-title)
   }
 
   pagebreak()
