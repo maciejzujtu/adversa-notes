@@ -196,6 +196,40 @@
   )
 }
   
+// Prologue function for topic introductions
+#let prologue(body) = {
+  pad(
+    x: 2em,
+    top: 0.5em,
+    bottom: 1.5em,
+    block(
+      width: 100%,
+      stroke: (left: 2pt + rgb("#b3b3b3")),
+      inset: (left: 1.2em, top: 0.2em, bottom: 0.2em),
+      text(size: 1.05em, style: "italic", fill: rgb("#4d4d4d"), body)
+    )
+  )
+}
+
+// Citation function
+#let cit(source) = {
+  align(right)[
+    #v(-0.5em)
+    #text(size: 0.85em, fill: rgb("#666666"))[
+      #sym.dash.em #smallcaps[Source:] #source
+    ]
+  ]
+}
+
+// Styled Hyperlink function
+#let hyperlink(url, display-text) = {
+  link(url)[
+    #text(fill: rgb("#3b6e8f"))[
+      #underline(stroke: 0.5pt, offset: 2pt)[#display-text]
+    ]
+  ]
+}
+
 // Theorem environment inspired by mousse-notes but remade so it shows up
 // in the contents table as well added few extra visual tweaks.
 // Theorem environment inspired by mousse-notes but remade so it shows up
