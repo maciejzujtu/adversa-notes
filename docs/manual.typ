@@ -6,7 +6,7 @@
   title: "Adversa Notes",
   subtitle: "A package manual",
   author: "maciejzujtu",
-  outline-title: "Contents",
+  contents-title: "Contents",
   show-date: false
 )
 

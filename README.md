@@ -31,14 +31,14 @@ To add the template to your typst notes simply include the import statement as w
 It's worth noting that this template uses [codly](https://typst.app/universe/package/codly) package to highlight code snippets via the `#code` block. So if you are planning on adding any code snippets to your typst files whilst you use this template make sure to also add the commented out `show` rules.
 
 ```typ
-#import "@preview/adversa:0.1.1": *
+#import "@preview/adversa:0.1.2": *
 // #import "@preview/codly-languages:0.1.1": *  <- Code snippets import
-// #import "@preview/adversa:0.1.1": *          <- Icons pack import
+// #import "@preview/codly:1.3.0": *            <- Icons pack import
 
 #show: adversa.with(
   title: [Algorithms and Data Structures],
   subtitle: [Comprehensive set of notes],
-  outline-title: [Contents],
+  contents-title: [Contents],
   author: "Dummy",
   show-date: true
 )

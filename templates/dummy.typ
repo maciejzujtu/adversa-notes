@@ -5,7 +5,7 @@
 #show: adversa.with(
   title: [Algorithms and Data Structures],
   subtitle: [Comprehensive set of notes],
-  outline-title: [Contents],
+  contents-title: [Contents],
   author: "Dummy",
   show-date: true
 )
